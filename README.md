@@ -1,17 +1,24 @@
 # K-Policy Simulator
 
-Evidence-aware A/B/C public-policy scenario comparison engine.
+정책 A/B/C안을 비용·편익·실행·위험·근거로 비교하는 중립적 시뮬레이터하는 대한민국 공공업무용 오픈소스 프로토타입입니다.
 
-Early-stage public-sector AI research prototype. Official data, laws and statistics must be verified against their source before decision-making.
+## 목표
+- 단독 FastAPI 서비스로 실행
+- 공식 공공데이터 우선, 출처와 검증상태 보존
+- API 키·개인정보·내부문서 저장 금지
+- National AI Orchestrator의 전문 도구로 연결
 
-## Scope
-- API-first modular architecture
-- Korean public-data integration ready
-- deterministic local fallback
-- no API keys, personal data, internal documents or generated reports committed
+## 실행
+```bash
+python -m pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
+pytest -q
+```
 
-## Planned API
-`GET /health` and `POST /analyze` using FastAPI. Domain: **policy**.
+## 공식 연계 후보
+- 공공데이터포털: https://www.data.go.kr/
+- KOSIS OpenAPI: https://kosis.kr/openapi/
+- 국가법령정보 공동활용: https://open.law.go.kr/
 
-## Relationship
-Independent component designed for integration with [National AI Orchestrator](https://github.com/HansOhByeongho/national-ai-orchestrator).
+## 개발 상태
+**v0.4 research prototype** — 실제 행정 의사결정 전 최신 공식 원문을 재확인해야 합니다.
